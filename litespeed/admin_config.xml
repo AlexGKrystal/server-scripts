@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adminConfig>
+  <enableCoreDump>1</enableCoreDump>
+  <sessionTimeout>3600</sessionTimeout>
+  <logging>
+    <log>
+      <useServer>0</useServer>
+      <fileName>$VH_ROOT/logs/error.log</fileName>
+      <logLevel>INFO</logLevel>
+      <rollingSize>10M</rollingSize>
+    </log>
+    <accessLog>
+      <useServer>0</useServer>
+      <fileName>$VH_ROOT/logs/access.log</fileName>
+      <rollingSize>10M</rollingSize>
+      <keepDays>90</keepDays>
+    </accessLog>
+  </logging>
+  <security>
+    <accessControl>
+      <allow>ALL</allow>
+    </accessControl>
+  </security>
+  <listenerList>
+    <listener>
+      <name>adminListenerSSL</name>
+      <address>*:7081</address>
+      <secure>1</secure>
+      <keyFile>$SERVER_ROOT/conf/cert/server.hostname.com.key</keyFile>
+      <certFile>$SERVER_ROOT/conf/cert/server.hostname.com.crt</certFile>
+      <certChain>1</certChain>
+    </listener>
+  </listenerList>
+</adminConfig>
