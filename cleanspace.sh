@@ -1,4 +1,6 @@
 #!/bin/bash
+# Usage
+# curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
 
 echo -e "${bold}Usage Before Cleanup: ${normal}"
 df -h
