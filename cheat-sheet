@@ -1,5 +1,5 @@
 ####################################
-# Cheat Sheet for r.ioserver.co.uk #
+# Cheat Sheet for raw.githubusercontent.com/AlexGKrystal/server-scripts/main #
 ####################################
 
 ################
@@ -9,17 +9,17 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Unsusped and lock web access to IP address #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bash -c "$(wget -qO - https://r.ioserver.co.uk/account_unsuspend.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/account_unsuspend.sh)"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 # Friendly log checker #
 ~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/log_check.sh | sh -s LOG_FILE_NAME
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/log_check.sh | sh -s LOG_FILE_NAME
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Check user logs for issues regarding resource limits #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-bash -c "$(wget -qO - https://r.ioserver.co.uk/user_check.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/user_check.sh)"
 
 ########
 # Misc #
@@ -28,61 +28,61 @@ bash -c "$(wget -qO - https://r.ioserver.co.uk/user_check.sh)"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Checking installed modules on a server #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/cpanel-install-check.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~
 # Mass DNS Lookup #
 ~~~~~~~~~~~~~~~~~~~
-bash -c "$(wget -qO - https://r.ioserver.co.uk/mass-dns.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mass-dns.sh)"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Disable plugins 1 at a time #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (run from plugins dir)
-bash -c "$(wget -qO - https://r.ioserver.co.uk/plugin-disabler.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/plugin-disabler.sh)"
 
 ~~~~~~~~~~~~~~~~~~~~~~
 # List crons by user #
 ~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/list_crons.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/list_crons.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Check latest JetBackup log for errors #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/jetbackup-log-check.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/jetbackup-log-check.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Check Disk usage on server #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/disk_usage.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/disk_usage.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 # Clear space on server #
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/cleanspace.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Installing Elasticsearch 7 #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/elasticsearch7-install.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/elasticsearch7-install.sh | sh
 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 # Installing Litespeed #
 ~~~~~~~~~~~~~~~~~~~~~~~~
-bash -c "$(wget -qO - https://r.ioserver.co.uk/ls-install.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/ls-install.sh)"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 # Litespeed hit checker #
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-bash -c "$(wget -qO - https://r.ioserver.co.uk/litespeed-check.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed-check.sh)"
 
 ~~~~~~~~~~~~~~~~
 # Holding Page #
 ~~~~~~~~~~~~~~~~
-wget https://r.ioserver.co.uk/holding_page.zip
+wget https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/holding_page.zip
 unzip holding_page.zip
 
 ~~~~~~~~~~~~~~~~~~
 # Install my key #
 ~~~~~~~~~~~~~~~~~~
-curl https://r.ioserver.co.uk/key.sh | sh
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/key.sh | sh

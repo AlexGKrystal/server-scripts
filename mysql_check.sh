@@ -1,5 +1,5 @@
 #!/bin/bash
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/mysql_check.sh)"
+# bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql_check.sh)"
 
 #Gets date
 today=`date | awk  -F"[ ,]" '{print $1, $3, $2}'`

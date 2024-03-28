@@ -1,5 +1,5 @@
 #!/bin/bash
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/mysql_log_check.sh)"
+# bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql_log_check.sh)"
 
 #Read log file.
 echo "enter user:"

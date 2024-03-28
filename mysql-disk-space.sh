@@ -3,7 +3,7 @@
 # Created by Alex G
 # DATE 20/03/2024
 # Usage
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/mysql-disk-space.sh)"
+# bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-disk-space.sh)"
 
 # ------------ Check Disk Space START ------------ #
 # Get the size of MySQL directory in bytes

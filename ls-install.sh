@@ -1,6 +1,6 @@
 #!/bin/bash
 # Source: https://outline.k.io/doc/litespeed-config-example-XAtd8FECr8
-# run script with bash -c "$(wget -qO - https://r.ioserver.co.uk/ls-install.sh)"
+# run script with bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/ls-install.sh)"
 
 # Configure the worker config:
 echo '<IfModule LiteSpeed>
@@ -12,18 +12,18 @@ echo '<IfModule LiteSpeed>
 # backup conf
 cp /usr/local/lsws/admin/conf/admin_config.xml{,.BAK}
 # Import new conf
-curl https://r.ioserver.co.uk/litespeed/admin_config.xml > /usr/local/lsws/admin/conf/admin_config.xml
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/admin_config.xml > /usr/local/lsws/admin/conf/admin_config.xml
 
 # backup conf
 cp /usr/local/lsws/conf/httpd_config.xml{,.BAK}
 # Import  new conf
-curl https://r.ioserver.co.uk/litespeed/httpd_config.xml > /usr/local/lsws/conf/httpd_config.xml
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/httpd_config.xml > /usr/local/lsws/conf/httpd_config.xml
 
 # install Packages
 yum install -y jq epel-release oniguruma
 
 # Get update script to update the configs
-wget https://r.ioserver.co.uk/litespeed/fix-lswsssl.sh
+wget https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/fix-lswsssl.sh
 # run script
 sh fix-lswsssl.sh
 
