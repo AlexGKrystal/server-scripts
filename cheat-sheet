@@ -75,6 +75,4 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 # Litespeed hit checker #
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed-check.sh)"
-# Install my key #
-~~~~~~~~~~~~~~~~~~
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/key.sh | sh
+
