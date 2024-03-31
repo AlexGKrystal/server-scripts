@@ -1,26 +1,26 @@
 #!/bin/bash
 #IPv4 Addresses
-csf -g 103.21.244.0/22
-csf -g 103.22.200.0/22
-csf -g 103.31.4.0/22
-csf -g 104.16.0.0/13
-csf -g 104.24.0.0/14
-csf -g 108.162.192.0/18
-csf -g 131.0.72.0/22
-csf -g 141.101.64.0/18
-csf -g 162.158.0.0/15
-csf -g 172.64.0.0/13
-csf -g 173.245.48.0/20
-csf -g 188.114.96.0/20
-csf -g 190.93.240.0/20
-csf -g 197.234.240.0/22
-csf -g 198.41.128.0/17
+# Get latest IPv4 IPs from CF
+curl -s https://www.cloudflare.com/ips-v4/# > cf-ipv4-temp.txt
+
+# Run through Listed IPs anc check for blocks
+echo "!!! Checking IPv4 Addresses being Blocked !!!"
+while read ip; do
+  csf -g "${ip}"
+done <cf-ipv4-temp.txt
+
+# Clean up temp file
+rm -f cf-ipv4-temp.txt
 
 #IPv6 Addresses
-csf -g 2400:cb00::/32
-csf -g 2606:4700::/32
-csf -g 2803:f800::/32
-csf -g 2405:b500::/32
-csf -g 2405:8100::/32
-csf -g 2a06:98c0::/29
-csf -g 2c0f:f248::/32
+# Get latest IPv6 IPs from CF
+curl -s https://www.cloudflare.com/ips-v6/# > cf-ipv6-temp.txt
+
+# Run through Listed IPs anc check for blocks
+echo "!!! Checking IPv6 Addresses being Blocked !!!"
+while read ip; do
+  csf -g "${ip}"
+done <cf-ipv6-temp.txt
+
+# Clean up temp file
+rm -f cf-ipv6-temp.txt
