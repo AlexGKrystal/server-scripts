@@ -5,8 +5,8 @@ curl -s https://www.cloudflare.com/ips-v4/# > cf-ipv4-temp.txt
 
 # Run through Listed IPs anc check for blocks
 echo "!!! Checking IPv4 Addresses being Blocked !!!"
-while read ip; do
-  csf -g "${ip}"
+while read ipv4; do
+  csf -g "${ipv4}"
 done <cf-ipv4-temp.txt
 
 # Clean up temp file
@@ -18,8 +18,8 @@ curl -s https://www.cloudflare.com/ips-v6/# > cf-ipv6-temp.txt
 
 # Run through Listed IPs anc check for blocks
 echo "!!! Checking IPv6 Addresses being Blocked !!!"
-while read ip; do
-  csf -g "${ip}"
+while read ipv6; do
+  csf -g "${ipv6}"
 done <cf-ipv6-temp.txt
 
 # Clean up temp file
