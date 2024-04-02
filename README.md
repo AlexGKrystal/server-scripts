@@ -51,22 +51,22 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/jetbacku
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/disk_usage.sh | sh
 ```
 
-######## Clear space on server
+###### Clear space on server
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
 ```
 
-######## Installing Elasticsearch 7
+###### Installing Elasticsearch 7
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/elasticsearch7-install.sh | sh
 ```
 
-######## Installing Litespeed
+###### Installing Litespeed
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/ls-install.sh)"
 ```
 
-######## Litespeed hit checker
+###### Litespeed hit checker
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed-check.sh)"
 ```
