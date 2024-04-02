@@ -35,8 +35,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
 ```
 
-###### Disable plugins 1 at a time
-(run from plugins dir)
+###### Disable plugins 1 at a time (run from plugins directory)
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/plugin-disabler.sh)"
 ```
