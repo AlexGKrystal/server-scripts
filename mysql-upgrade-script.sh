@@ -4,7 +4,7 @@
 # DATE 18/03/2024
 # 
 # Usage
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/mysql-upgrade-script.sh)"
+# bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
 
 #!/bin/bash
 
