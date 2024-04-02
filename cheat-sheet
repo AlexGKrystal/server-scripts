@@ -7,7 +7,7 @@
 ################
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Unsusped and lock web access to IP address #
+# Unsuspend and lock web access to IP address #
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/account_unsuspend.sh)"
 

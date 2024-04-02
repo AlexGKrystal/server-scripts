@@ -36,4 +36,3 @@ echo "DNS Queries have been completed and are stored in '$output_file'."
 
 # Cleanup
 rm -f domains.txt
-
