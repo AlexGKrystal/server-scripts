@@ -1,6 +1,4 @@
 #!/bin/bash
-# Run with:
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/db_rename.sh)"
 
 #Read log file.
 echo "enter user:"

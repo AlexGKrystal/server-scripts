@@ -1,6 +1,4 @@
 #!/bin/bash
-#run with
-# bash -c "$(wget -qO - https://r.ioserver.co.uk/docker-server.sh)"
 
 # update first
 apt update && apt upgrade -y
