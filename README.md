@@ -30,6 +30,11 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-i
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mass-dns.sh)"
 ```
 
+###### MariaDB 10.3 to 10.6 Upgrade Script
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
+```
+
 ###### Disable plugins 1 at a time
 (run from plugins dir)
 ```
