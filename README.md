@@ -17,33 +17,7 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/log_chec
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/user_check.sh)"
 ```
 
-## Misc
-
-###### Checking installed modules on a server
-
-```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
-```
-
-###### Mass DNS Lookup
-```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mass-dns.sh)"
-```
-
-###### MariaDB 10.3 to 10.6 Upgrade Script
-```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
-```
-
-###### Disable plugins 1 at a time (run from plugins directory)
-```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/plugin-disabler.sh)"
-```
-
-###### List crons by user
-```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/list_crons.sh | sh
-```
+## Maintenance
 
 ###### Check latest JetBackup log for errors
 ```
@@ -60,6 +34,13 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/disk_usa
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
 ```
 
+###### MariaDB 10.3 to 10.6 Upgrade Script
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
+```
+
+## Installs
+
 ###### Installing Elasticsearch 7
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/elasticsearch7-install.sh | sh
@@ -68,6 +49,30 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/elastics
 ###### Installing Litespeed
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/ls-install.sh)"
+```
+
+###### Checking installed modules on a server
+
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
+```
+
+
+## Misc
+
+###### Mass DNS Lookup
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mass-dns.sh)"
+```
+
+###### Disable plugins 1 at a time (run from plugins directory)
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/plugin-disabler.sh)"
+```
+
+###### List crons by user
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/list_crons.sh | sh
 ```
 
 ###### Litespeed hit checker
