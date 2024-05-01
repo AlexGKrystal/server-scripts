@@ -6,8 +6,6 @@
 # Usage
 # bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
 
-#!/bin/bash
-
 # ------------ MariaDB repo check START ------------ #
 if grep -q "yum.mariadb.org" /etc/yum.repos.d/MariaDB103.repo; then
     echo "Updating URL to use Archived link in in MariaDB103.repo..."
@@ -96,6 +94,3 @@ else
     echo "Skipping Upgrade"
 fi
 # ------------ MariaDB 10.6 Upgrade END ------------ #
-
-
-mysql -V
