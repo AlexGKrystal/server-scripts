@@ -5,7 +5,6 @@
 
 # ------------ MySQL Backup START ------------ #
 echo "Running MySQL Backup..."
-cp /etc/my.cnf /krystal-mysql-upgrade-backup/
 whmapi1 configureservice service=mysql enabled=0 monitored=0
 mkdir -p /home/0_mysql_backup
 rsync -av --delete /var/lib/mysql /krystal-mysql-upgrade-backup/
@@ -25,9 +24,16 @@ echo "##### !!!! IMPORTANT !!!! #####"
 echo "Please verify backups are ok and you are ready to proceed before continuing"
 read -p "Do you want to run MySQL upgrade? (y/N): " choice
 if [[ "$choice" =~ ^[yY]$ ]]; then
+    #Upgrading MySQL
     echo "Running MariaDB upgrade"
     /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb106
     /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+    # Backing up cnf and applying new config
+    echo "replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
+    cp /etc/my.cnf /krystal-mysql-upgrade-backup/
+    curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
+    service mysql restart
+
     echo "Upgrade Complete. MySQL Version:"
     echo "##############################################################################"
     mysql -V
