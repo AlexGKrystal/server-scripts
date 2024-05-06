@@ -16,7 +16,7 @@ echo "Installing MySQL Governor..."
 echo
 sleep 5
 yum -y install governor-mysql
-/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb106
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb1011
 yes|/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 sleep 1
 cd /root/krystal
