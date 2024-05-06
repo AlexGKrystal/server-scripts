@@ -15,17 +15,6 @@ else
 fi
 # ------------ MariaDB repo check END ------------ #
 
-# ------------ MySQL repair START ------------ #
-read -p "Do you want to run MySQL repair against all Databases? (y/N): " choice
-if [[ "$choice" =~ ^[yY]$ ]]; then
-    echo "Running MySQL repair..."
-    mysqlcheck -A --auto-repair
-    echo "MySQL repair completed."
-else
-    echo "MySQL repair skipped."
-fi
-# ------------ MySQL repair END ------------ #
-
 # ------------ Check Disk Space START ------------ #
 # Get the size of MySQL directory in bytes
 mysql_size=$(du -s /var/lib/mysql | awk '{print $1}')
@@ -53,6 +42,17 @@ else
     echo "Create a Mounted disk for Backups for more room"
 fi
 # ------------ Check Disk Space END ------------ #
+
+# ------------ MySQL repair START ------------ #
+read -p "Do you want to run MySQL repair against all Databases? (y/N): " choice
+if [[ "$choice" =~ ^[yY]$ ]]; then
+    echo "Running MySQL repair..."
+    mysqlcheck -A --auto-repair
+    echo "MySQL repair completed."
+else
+    echo "MySQL repair skipped."
+fi
+# ------------ MySQL repair END ------------ #
 
 # ------------ Backup pre-sync START ------------ #
 # Make dir for mysql backup
