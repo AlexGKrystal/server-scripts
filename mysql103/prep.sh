@@ -53,3 +53,10 @@ else
     echo "Create a Mounted disk for Backups for more room"
 fi
 # ------------ Check Disk Space END ------------ #
+
+# ------------ Backup pre-sync START ------------ #
+# Make dir for mysql backup
+mkdir -p /home/krystal-mysql-upgrade-backup
+#Start a verbose rsync  which runs every 10 minutes.
+while true; do rsync -av /var/lib/mysql/ /home/krystal-mysql-upgrade-backup/; sleep 300; done
+# ------------ Backup pre-sync END ------------ #
