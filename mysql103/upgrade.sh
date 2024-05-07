@@ -22,13 +22,14 @@ echo "##### !!!! IMPORTANT !!!! #####"
 echo "Please verify backups are ok and you are ready to proceed before continuing"
 read -p "Do you want to run MySQL upgrade? (y/N): " choice
 if [[ "$choice" =~ ^[yY]$ ]]; then
+    # Backing up existing my.cnf before upgrade
+    cp /etc/my.cnf /home/krystal-mysql-upgrade-backup/
     #Upgrading MySQL
     echo "Running MariaDB upgrade"
     /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb106
     /usr/share/lve/dbgovernor/mysqlgovernor.py --install
-    # Backing up cnf and applying new config
+    #Applying new Conf
     echo "replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
-    cp /etc/my.cnf /home/krystal-mysql-upgrade-backup/
     curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
     service mysql restart
 
