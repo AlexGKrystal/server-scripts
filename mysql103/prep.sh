@@ -21,7 +21,7 @@ mysql_size=$(du -s /var/lib/mysql | awk '{print $1}')
 # Convert size to GB
 mysql_size_gb=$(echo "scale=2; $mysql_size / 1024 / 1024" | bc)
 
-# Calculate the required free space (3 times the size of MySQL directory)
+# Calculate the required free space (2 times the size of MySQL directory)
 required_space=$(echo "$mysql_size * 2" | bc)
 
 # Get available disk space in bytes
