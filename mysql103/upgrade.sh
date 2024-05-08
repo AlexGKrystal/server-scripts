@@ -12,7 +12,7 @@ echo "Running MySQL Backup..."
 rsync -av --delete /var/lib/mysql /home/krystal-mysql-upgrade-backup/
 echo "Starting MySQL..."
 service mysql start
-echo "Enabling cPanel monitoring of MySQL service...(may take a minute)"
+echo "Enabling cPanel monitoring of MySQL service...(this may take a minute)"
 whmapi1 configureservice service=mysql enabled=1 monitored=1
 echo "===================================================="
 echo "================ Backup folder view ================"
@@ -38,8 +38,7 @@ while true; do
             echo "Replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
             curl -s https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
             echo "Restarting Mysql to apply new conf"
-	    service mysql restart
-
+	        service mysql restart
             echo "Upgrade Complete. MySQL Version:"
             echo "##############################################################################"
             mysql -V
