@@ -36,8 +36,9 @@ while true; do
             /usr/share/lve/dbgovernor/mysqlgovernor.py --install
             # Applying new Conf
             echo "Replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
-            curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
-            service mysql restart
+            curl -s https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
+            echo "Restarting Mysql to apply new conf"
+	    service mysql restart
 
             echo "Upgrade Complete. MySQL Version:"
             echo "##############################################################################"
