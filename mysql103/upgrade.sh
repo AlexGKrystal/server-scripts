@@ -12,7 +12,7 @@ echo "Running MySQL Backup..."
 rsync -av --delete /var/lib/mysql /home/krystal-mysql-upgrade-backup/
 echo "Starting MySQL..."
 service mysql start
-echo "Enabling cPanel monitoring of MySQL service..."
+echo "Enabling cPanel monitoring of MySQL service...(may take a minute)"
 whmapi1 configureservice service=mysql enabled=1 monitored=1
 echo "===================================================="
 echo "================ Backup folder view ================"
