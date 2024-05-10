@@ -34,15 +34,26 @@ while true; do
             echo "Running MariaDB upgrade"
             /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb106
             /usr/share/lve/dbgovernor/mysqlgovernor.py --install
-            # Applying new Conf
-            echo "Replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
-            curl -s https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
-            echo "Restarting Mysql to apply new conf"
-	        service mysql restart
-            echo "Upgrade Complete. MySQL Version:"
-            echo "##############################################################################"
-            mysql -V
-            echo "##############################################################################"
+            # Checking MySQL version post Upgrade
+            # Run mysql -V command and store the output in a variable
+            mysql_version=$(mysql -V 2>&1)
+            # Check Mysql output contains "10.6"
+            if [[ $mysql_version == *"10.6"* ]]; then
+                echo "MySQL 10.6 detected. Proceeding with upgrade"
+                # Applying new Conf
+                echo "Replacing my.cnf (backup in /krystal-mysql-upgrade-backup/)"
+                curl -s https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql103/my.cnf > /etc/my.cnf
+                echo "Restarting Mysql to apply new conf"
+                service mysql restart
+                echo "Upgrade Complete. MySQL Version:"
+                echo "##############################################################################"
+                mysql -V
+                echo "##############################################################################"
+            else
+                #If MySQL output doesn't match 10.6
+                echo "!!!!!! UPGRADE NOT COMPLETE !!!!!!"
+                echo mysql_version
+            fi
             break;;
         [Nn]* )
             echo "Skipping Upgrade"
