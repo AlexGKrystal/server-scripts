@@ -52,7 +52,7 @@ while true; do
             else
                 #If MySQL output doesn't match 10.6
                 echo "!!!!!! UPGRADE NOT COMPLETE !!!!!!"
-                echo mysql_version
+                echo $mysql_version
             fi
             break;;
         [Nn]* )
