@@ -25,7 +25,7 @@ echo "MySQL MySQL Backup completed - Check above Output looks ok"
 echo "##### !!!! IMPORTANT !!!! #####"
 echo "Please verify backups are ok and you are ready to proceed before continuing"
 while true; do
-    read -p "Do you want to run MySQL upgrade? (y/N): " choice
+    read -p "Do you want to run MySQL upgrade? (y/n): " choice
     case "$choice" in
         [Yy]* )
             # Backing up existing my.cnf before upgrade
