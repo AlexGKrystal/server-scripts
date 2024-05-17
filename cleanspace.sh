@@ -39,5 +39,3 @@ sleep 3
 df -h
 echo -e "\n${bold}Complete... ${normal}\n"
 sleep 0.5
-
-#Test
