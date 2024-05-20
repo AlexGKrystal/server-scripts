@@ -10,24 +10,32 @@ echo '<IfModule LiteSpeed>
 </IfModule>' >> /etc/apache2/conf.d/includes/pre_virtualhost_global.conf
 
 # backup conf
+echo "Backing up existing admin config..."
 cp /usr/local/lsws/admin/conf/admin_config.xml{,.BAK}
 # Import new conf
+echo "importing new config..."
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/admin_config.xml > /usr/local/lsws/admin/conf/admin_config.xml
 
 # backup conf
+echo "Backing up existing http config..."
 cp /usr/local/lsws/conf/httpd_config.xml{,.BAK}
 # Import  new conf
+echo "Importing new http config..."
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/httpd_config.xml > /usr/local/lsws/conf/httpd_config.xml
 
 # install Packages
+echo "Installing packages..."
 yum install -y jq epel-release oniguruma
 
 # Get update script to update the configs
+echo "Getting SSL fix script..."
 wget https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed/fix-lswsssl.sh
 # run script
+echo "Running SSL fix script..."
 sh fix-lswsssl.sh
 
-# Remove script
+# Remove script.
+echo "Deleting SSL fix script..."
 rm -f fix-lswsssl.sh
 
 # Announce Completed install
