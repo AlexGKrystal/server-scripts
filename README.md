@@ -24,11 +24,6 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/jetbackup-log-check.sh | sh
 ```
 
-###### Check Disk usage on server
-```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/disk_usage.sh | sh
-```
-
 ###### Clear space on server
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
