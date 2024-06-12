@@ -24,6 +24,14 @@ else
 fi
 
 
+# Check if Elasticsearch is installed
+if command -v elasticsearch > /dev/null 2>&1; then
+    echo "Elasticsearch is installed. <----"
+else
+    echo "Elasticsearch is not installed."
+fi
+
+
 # Check installed Perl modules
 echo
 echo "List of installed Perl modules:"
