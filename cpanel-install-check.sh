@@ -25,12 +25,12 @@ fi
 
 
 # Check if Elasticsearch is installed
-if command -v elasticsearch > /dev/null 2>&1; then
-    echo "Elasticsearch is installed. <----"
+version=$(curl -s GET "localhost:9200" | grep -oP '(?<="number" : ")[^"]*')
+if [ -n "$version" ]; then
+	echo "Elasticsearch version: $version <-----"
 else
     echo "Elasticsearch is not installed."
 fi
-
 
 # Check installed Perl modules
 echo
