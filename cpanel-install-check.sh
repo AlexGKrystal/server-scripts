@@ -2,6 +2,10 @@
 
 echo "#################################"
 
+echo "WHM Nameservers:"
+whmapi1 get_nameserver_config | grep " - "
+echo
+
 # Check if LiteSpeed is installed
 if command -v /usr/local/lsws/bin/lshttpd &> /dev/null; then
     echo "LiteSpeed is installed. <----"
