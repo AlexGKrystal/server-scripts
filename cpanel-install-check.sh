@@ -37,7 +37,6 @@ else
 fi
 
 #Checking for FTP services
-echo "Checking for running FTP installations:"
 /scripts/setupftpserver --current
 
 # Check installed Perl modules
