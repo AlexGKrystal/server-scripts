@@ -39,6 +39,14 @@ sh fix-lswsssl.sh
 echo "Deleting SSL fix script..."
 rm -f fix-lswsssl.sh
 
+# Running update whicvh usually fixes any issues during install
+echo "running update script to fix any issues..."
+/usr/local/lsws/admin/misc/lsup.sh -f
+
+#Switching to LS from Apache
+echo "Switching to LS..."
+/usr/local/lsws/admin/misc/cp_switch_ws.sh lsws
+
 # Announce Completed install
 echo "
 ################################
