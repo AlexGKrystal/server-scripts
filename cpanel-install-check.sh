@@ -36,6 +36,11 @@ else
     echo "Elasticsearch is not installed."
 fi
 
+#Checking for FTP services
+echo "Checking for running FTP installations:"
+ps aux | grep -ftp
+
+
 # Check installed Perl modules
 echo
 echo "List of installed Perl modules:"
