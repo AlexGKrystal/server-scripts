@@ -39,6 +39,11 @@ fi
 #Checking for FTP services
 /scripts/setupftpserver --current
 
+
+# Check JetBackup5 Destination
+echo "JetBackup5 Destination info:"
+jetbackup5api -F listDestinations | grep -E 'Ark|username'
+
 # Check installed Perl modules
 echo
 echo "List of installed Perl modules:"
