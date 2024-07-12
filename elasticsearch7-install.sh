@@ -32,6 +32,33 @@ systemctl start elasticsearch
 # Add service to startup
 chkconfig --add elasticsearch
 
+
+### Adds Auto restart to the config
+CONFIG_FILE="/usr/lib/systemd/system/elasticsearch.service"  # replace with the path to your configuration file
+
+# Check if the configuration file exists
+if [[ ! -f $CONFIG_FILE ]]; then
+  echo "Configuration file not found!"
+  exit 1
+fi
+
+# Check if "Restart=always" already exists in the [Service] section
+if grep -q "\[Service\]" $CONFIG_FILE; then
+  if grep -q "Restart=always" $CONFIG_FILE; then
+    echo "Restart=always is already present in the [Service] section."
+    exit 0
+  fi
+
+  # Use awk to add "Restart=always" under the [Service] section
+  awk '/\[Service\]/{print;print "Restart=always";next}1' $CONFIG_FILE > ${CONFIG_FILE}.tmp && mv ${CONFIG_FILE}.tmp $CONFIG_FILE
+
+  echo "Restart=always has been added to the [Service] section."
+else
+  echo "[Service] section not found in the configuration file."
+  exit 1
+fi
+
+
 # Output Status
 echo "
 ###################################
