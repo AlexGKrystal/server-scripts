@@ -71,6 +71,10 @@ curl -X GET "localhost:9200"
 echo "
 ####################################
 ## ElasticSearch install finished ##
+####################################
+####### Set Memory limits in #######
+## /etc/elasticsearch/jvm.options ##
+####################################
 ##### Add monitoring to MyOps ######
 ####################################
 "
