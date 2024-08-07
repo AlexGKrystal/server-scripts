@@ -19,7 +19,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 
 ###### Check Server wide common IPs
 ```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh '03/Apr/2024:12'
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s '03/Apr/2024:12'
 ```
 
 ## Maintenance
