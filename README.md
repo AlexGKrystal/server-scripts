@@ -17,6 +17,11 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/log_chec
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/user_check.sh)"
 ```
 
+###### Check Server wide common IPs
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh '03/Apr/2024:12'
+```
+
 ## Maintenance
 
 ###### Check latest JetBackup log for errors
