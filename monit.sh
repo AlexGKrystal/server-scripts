@@ -2,6 +2,7 @@
 # 
 # Created by Alex G
 # DATE 16 August 2024
+# Run with curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/monit.sh | sh
 
 yum install monit -y
 
