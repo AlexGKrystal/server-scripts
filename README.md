@@ -57,6 +57,12 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
 ```
 
+###### Install Monit
+
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/monit.sh | sh
+```
+
 
 ## Misc
 
