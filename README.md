@@ -22,6 +22,11 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s '03/Apr/2024:12'
 ```
 
+###### Check top MySQL users (10 second snapshot)
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh | sh
+```
+
 ## Maintenance
 
 ###### Check latest JetBackup log for errors
