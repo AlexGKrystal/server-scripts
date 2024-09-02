@@ -3,7 +3,7 @@
 # Created by Alex G
 # DATE 02/09/2024
 # Run with:
-# curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh | sh
+# bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh)"
 
 # Start logging processes in MySQL, pipe into a log and grab PID for job
 echo "Grabbing MySQL processes for 10 seconds"

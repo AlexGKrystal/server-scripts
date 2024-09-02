@@ -24,7 +24,7 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-i
 
 ###### Check top MySQL users (10 second snapshot)
 ```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh | sh
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh)"
 ```
 
 ## Maintenance
