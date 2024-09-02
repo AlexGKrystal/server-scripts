@@ -2,6 +2,8 @@
 # 
 # Created by Alex G
 # DATE 02/09/2024
+# Run with:
+# curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh | sh
 
 # Start logging processes in MySQL, pipe into a log and grab PID for job
 echo "Grabbing MySQL processes for 10 seconds"
@@ -13,6 +15,8 @@ sleep 10
 # Kill the logging task
 echo "Killing logging ..."
 kill $TAIL_PID
+sleep 2
 
 # Grab Users collumn from log and output top 10 with number of hits
+echo "Checking mysql.log for top users..."
 cat mysql.log | awk '{print $4}' |  sort -n | uniq -c | sort -n | tail -n 10
