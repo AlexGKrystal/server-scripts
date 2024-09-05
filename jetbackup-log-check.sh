@@ -1,6 +1,7 @@
 #!/bin/sh
 # 
 # Get the most recent log file where a Backup is run
+# Checking log files with "Backup Name" set to get around logs from snapshot cleanup interferring
 recent_log=$(grep "Backup Name" /usr/local/jetapps/var/log/jetbackup5/queue/*.log | awk -F':' '{print $1}' | tail -n 1)
 
 # Check if the third line contains "JB Config"
