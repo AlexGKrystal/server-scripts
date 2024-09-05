@@ -1,12 +1,12 @@
 #!/bin/sh
 # 
-# Get the most recent log file
-recent_log=$(ls -Art /usr/local/jetapps/var/log/jetbackup5/queue/*.log | tail -n 1)
+# Get the most recent log file where a Backup is run
+recent_log=$(grep "Backup Name" /usr/local/jetapps/var/log/jetbackup5/queue/*.log | awk -F':' '{print $1}' | tail -n 1)
 
 # Check if the third line contains "JB Config"
 if grep -q "JB Config" $recent_log; then
-    # Get the second most recent log file
-    previous_log=$(ls -Art /usr/local/jetapps/var/log/jetbackup5/queue/*.log | tail -n 2 | head -n 1)
+    # Get the second most recent log file where a Backup is run
+    previous_log=$(grep "Backup Name" /usr/local/jetapps/var/log/jetbackup5/queue/*.log | awk -F':' '{print $1}' | tail -n 2 | head -n 1)
     echo "Log File: $previous_log" 
     echo ""
     echo "=========== Errors ==========="
