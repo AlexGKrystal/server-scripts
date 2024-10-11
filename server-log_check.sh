@@ -16,7 +16,7 @@ cat $log_file | awk '{print $1}' | sort | uniq -c | wc -l
 echo "~~~~~~~~~~~~~~~
 # top 40 ip's #
 ~~~~~~~~~~~~~~~"
-cat overview_log | awk '{print $1}' | awk -F':' '{print $2}' |  sort -n | uniq -c | sort -n | tail -n 40
+cat $log_file | awk '{print $1}' | awk -F':' '{print $2}' |  sort -n | uniq -c | sort -n | tail -n 40
 
 echo "
 ~~~~~~~~~~~~~~~~~~~~~~
