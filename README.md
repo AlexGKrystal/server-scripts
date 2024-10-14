@@ -22,6 +22,12 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s '03/Apr/2024:12'
 ```
 
+###### Check Server wide loogs for common IPs and userAgents (basically same as Friendly log checke)
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/server-log-check.sh | sh -s '08/Oct/2024:06'
+```
+
+
 ###### Check top MySQL users (10 second snapshot)
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh)"
