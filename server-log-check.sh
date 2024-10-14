@@ -28,7 +28,7 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 cat ~/overview_log_temp.log | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail -n 20
 
-# clean up file
+# User puput to confirm log location and cleanup command
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~
 raw log file in ~/overview_log_temp.log
 remove with: rm -f overview_log
