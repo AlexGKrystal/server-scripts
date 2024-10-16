@@ -1,7 +1,12 @@
 #!/bin/bash
 
-#Read log file.
-time=$1
+# Get user to enter in Time
+echo "Enter Date/hour to check logs:"
+# Give example of most recent log entry so user can copy/paste for quick results
+echo "example: `tail -n 1 access_log | awk '{print substr($4, 2, 14)}'`"
+# read input
+read time
+
 
 # get time for all logs into a single file
 grep "$time" /usr/local/apache/logs/domlogs/*-ssl_log > ~/overview_log_temp.log
