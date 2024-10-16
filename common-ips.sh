@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# Check if the time range argument is provided
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <time_range>"
-  echo "Example: $0 '03/Apr/2024:12:3'"
-  exit 1
-fi
-
-time_range=$1
+# Get user to enter in Time
+echo "Enter Date/hour to check logs:"
+# Give example of most recent log entry so user can copy/paste for quick results
+echo "example: `tail -n 1 access_log | awk '{print substr($4, 2, 14)}'`"
+# read input
+read time
 
 # Find all log files in the specified directory and its subdirectories, excluding "bytes_log" files
 log_files=$(find /var/log/apache2/domlogs/ -type f -not -name "*bytes_log")

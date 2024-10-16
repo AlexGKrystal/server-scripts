@@ -19,12 +19,12 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 
 ###### Check Server wide common IPs
 ```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s '03/Apr/2024:12'
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh)"
 ```
 
 ###### Check Server wide loogs for common IPs and userAgents (basically same as Friendly log checke)
 ```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/server-log-check.sh | sh -s '08/Oct/2024:06'
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/server-log-check.sh)"
 ```
 
 
