@@ -3,7 +3,7 @@
 # Get user to enter in Time
 echo "Enter Date/hour to check logs:"
 # Give example of most recent log entry so user can copy/paste for quick results
-echo "example: `tail -n 1 access_log | awk '{print substr($4, 2, 14)}'`"
+echo "example: `tail -n 1 /etc/apache2/logs/access_log | awk '{print substr($4, 2, 14)}'`"
 # read input
 read time
 
