@@ -63,13 +63,11 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 ```
 
 ###### Checking installed modules on a server
-
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
 ```
 
 ###### Install Monit
-
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/monit.sh | sh
 ```
