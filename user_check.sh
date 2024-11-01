@@ -36,13 +36,17 @@ echo "~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~"
 cat /home/$user/access-logs/$log_file | awk '{print $1}' |  sort -n | uniq -c | sort -n | tail -n 10
 
-
 echo "
 ~~~~~~~~~~~~~~~~~~~~~~
 # Activity of top IP #
 ~~~~~~~~~~~~~~~~~~~~~~"
 top_ip=`cat /home/$user/access-logs/$log_file | awk '{print $1}' |  sort -n | uniq -c | sort -n | tail -n 1 | awk '{print $2}'`
 grep $top_ip /home/$user/access-logs/$log_file | tail -n 5
+
+echo "~~~~~~~~~~~~~~~~~~~~~~
+# Top URLs being hit #
+~~~~~~~~~~~~~~~~~~~~~~"
+grep http /home/$user/access-logs/$log_file | awk '{print $11}' | sort -n | uniq -c | sort -n | tail
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Top User agents #
