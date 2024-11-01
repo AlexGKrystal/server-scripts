@@ -18,7 +18,6 @@ echo "~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~"
 cat $log_file | awk '{print $1}' |  sort -n | uniq -c | sort -n | tail -n 10
 
-
 echo "
 ~~~~~~~~~~~~~~~~~~~~~~
 # Activity of top IP #
@@ -35,7 +34,6 @@ echo "~~~~~~~~~~~~~~~~~~~
 # Top User agents #
 ~~~~~~~~~~~~~~~~~~~"
 cat $log_file | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail
-
 
 echo
 echo "
