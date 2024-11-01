@@ -3,7 +3,6 @@
 #Read log file.
 log_file=$1
 
-
 echo "#######################################################"
 echo "Please note, this log starts at:" `head -1 $log_file | awk '{print $4}' | tr -d [`
 echo "#######################################################"
