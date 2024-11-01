@@ -26,10 +26,16 @@ echo "
 top_ip=`cat $log_file | awk '{print $1}' |  sort -n | uniq -c | sort -n | tail -n 1 | awk '{print $2}'`
 grep $top_ip $log_file | tail -n 5
 
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo "~~~~~~~~~~~~~~~~~~~~~~
+# Top URLs being hit #
+~~~~~~~~~~~~~~~~~~~~~~"
+grep http $log_file | awk '{print $11}' | sort -n | uniq -c | sort -n | tail
+
+echo "~~~~~~~~~~~~~~~~~~~
 # Top User agents #
-~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+~~~~~~~~~~~~~~~~~~~"
 cat $log_file | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail
+
 
 echo
 echo "
