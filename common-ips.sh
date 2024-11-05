@@ -16,7 +16,7 @@ declare -A ip_counts
 # Loop through each log file
 for file in $log_files; do
   # Extract unique IP addresses from the log file within the specified time range using awk and sort
-  ips=$(awk -v time_range="$time_range" '$4 ~ "^\\[" time_range {print $1}' "$file" | sort -u)
+  ips=$(awk -v time_range="$time_range" '$4 ~ "^\\[" time_range {print $1}' "$file")
 
   # Loop through each IP address
   for ip in $ips; do
