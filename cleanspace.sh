@@ -34,6 +34,10 @@ find /home/ -name "*.unison.tmp" > /root/unisontmp.log
 for u in `cat unisontmp.log`;do rm -rf $u;done
 ) >/dev/null 2>&1 2>/dev/null & pid=$!
 
+echo "Searching for cPanel Backups over 31 days old..."
+find /home/* -maxdepth 1 -name "backup-*.tar.gz" -type f -ctime +31 -exec rm {} \;
+echo "cPanel Backups cleaned"
+echo "----------------------"
 echo -e "${bold}Usage After Cleanup: ${normal}"
 sleep 3
 df -h
