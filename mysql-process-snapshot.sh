@@ -18,7 +18,7 @@ kill $TAIL_PID
 sleep 2
 
 # Grab Users collumn from log and output top 10 with number of hits
-echo "Checking mysql.log for top users..."
+echo "top users based on number of queries in 10 seconds..."
 cat mysql-process-snapshot.log | awk '{print $4}' |  sort -n | uniq -c | sort -n | tail -n 10
 # Clean up log file
 rm -f mysql-process-snapshot.log
