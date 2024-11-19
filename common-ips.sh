@@ -40,7 +40,7 @@ done
 # Sort the IP addresses by count in descending order
 sorted_ips=$(for ip in "${!ip_counts[@]}"; do
   echo "${ip_counts[$ip]} $ip"
-done | sort -nr | head -n 50)
+done | sort -nr | head -n 30)
 
 # Output the sorted IP addresses and their counts
 echo "$sorted_ips"
