@@ -88,5 +88,6 @@ echo "##########################################"
 echo "RPM build complete for redis VERSION $redis_version"
 echo "##########################################"
 # Output file list, we can always do something else with this later instead, such as a move or git push.
+# e.g. mv ~/rpmbuild/RPMS/x86_64/redis-stable*.rpm ~/git/redis-stable-latest.rpm
 echo "RPM files in ~/rpmbuild/RPMS/x86_64/"
 ls -lh ~/rpmbuild/RPMS/x86_64/
