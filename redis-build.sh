@@ -17,7 +17,7 @@ redis_version=`zgrep -a "redis-stable/src/version.h" ~/rpmbuild/SOURCES/redis-st
 # Build spec sheet with redis version
 cat <<EOF > ~/rpmbuild/SPECS/redis.spec
 Name:           redis
-Version:        $redis_version
+Version:        stable
 Release:        1%{?dist}
 Summary:        Redis is an open source key-value store
 
@@ -82,6 +82,11 @@ EOF
 # Build RPM
 rpmbuild -ba ~/rpmbuild/SPECS/redis.spec
 
-# Show builds
-echo "RPM builds in ~/rpmbuild/RPMS/x86_64/"
+echo
+# Output version since we now have a consistent name "stable"
+echo "##########################################"
+echo "RPM build complete for redis VERSION $redis_version"
+echo "##########################################"
+# Output file list, we can always do something else with this later instead, such as a move or git push.
+echo "RPM files in ~/rpmbuild/RPMS/x86_64/"
 ls -lh ~/rpmbuild/RPMS/x86_64/
