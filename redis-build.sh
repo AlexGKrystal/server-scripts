@@ -11,7 +11,10 @@
 # Getting the Latest Stable
 wget http://download.redis.io/redis-stable.tar.gz -O ~/rpmbuild/SOURCES/redis-stable.tar.gz
 
+# Grab the version from the tar file
 redis_version=`zgrep -a "redis-stable/src/version.h" ~/rpmbuild/SOURCES/redis-stable.tar.gz | awk -F'"' '/#define REDIS_VERSION/ {print $2}'`
+
+# Build spec sheet with redis version
 cat <<EOF > ~/rpmbuild/SPECS/redis.spec
 Name:           redis
 Version:        $redis_version
