@@ -2,7 +2,7 @@
 # 
 # Created by Alex G
 # DATE 21/11/24
-# This script will build an RPM 
+# This script will build an RPM from the latest redis stable tar file.
 
 # !!! Requirements !!!
 # Make directories: mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
