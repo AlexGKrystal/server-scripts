@@ -20,5 +20,3 @@ if [[ " ${TARGET_IPS[@]} " =~ " ${IP_CHECK} " ]]; then
 else
   echo "ERROR! Internal IP not detected: $IP_CHECK"
 fi
-
-whmlogin;echo;echo "echo 'tcp|in|d=722|s=`ip addr show dev eth0 | grep inet | head -n 1 | awk '{print $2}' | cut -d'/' -f1` # Client Server - `hostname`' >> /etc/csf/csf.allow.include && csf -r"
