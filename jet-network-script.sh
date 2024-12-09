@@ -22,11 +22,3 @@ else
 fi
 
 whmlogin;echo;echo "echo 'tcp|in|d=722|s=`ip addr show dev eth0 | grep inet | head -n 1 | awk '{print $2}' | cut -d'/' -f1` # Client Server - `hostname`' >> /etc/csf/csf.allow.include && csf -r"
-
-
-
-
-
-172.16.231.33
-172.16.231.47
-172.16.231.57
