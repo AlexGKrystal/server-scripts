@@ -15,6 +15,9 @@ if [[ " ${TARGET_IPS[@]} " =~ " ${IP_CHECK} " ]]; then
   echo "WHMLOGIN LINK:"
   whmlogin
   echo
+  echo "JetBackup5 Destination info:"
+  jetbackup5api -F listDestinations | grep -E 'Ark|username'
+  echo
   echo "Run this on ark server to whitelist this host"
   echo "echo 'tcp|in|d=722|s=`dig +short myip.opendns.com @resolver1.opendns.com` # Client Server - `hostname`' >> /etc/csf/csf.allow.include && csf -r"
 else
