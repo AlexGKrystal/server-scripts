@@ -23,7 +23,7 @@ if [[ " ${TARGET_IPS[@]} " =~ " ${IP_CHECK} " ]]; then
   echo
   
   echo "Run this on ark server to whitelist this host"
-  echo "echo 'tcp|in|d=722|s=\$(dig +short myip.opendns.com @resolver1.opendns.com) # Client Server - \$(hostname)' >> /etc/csf/csf.allow.include && csf -r"
+  echo "echo 'tcp|in|d=722|s=`dig +short myip.opendns.com @resolver1.opendns.com` # Client Server - `hostname`' >> /etc/csf/csf.allow.include && csf -r"
 else
   echo "ERROR! Internal IP not detected: $IP_CHECK"
 fi
