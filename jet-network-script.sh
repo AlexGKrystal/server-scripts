@@ -4,7 +4,7 @@
 # DATE 09/12/2024
 
 # Get IP from Config
-IP_CHECK=`jetbackup5api -F listDestinations | grep host | awk -F': ' '{print $2}'`
+IP_CHECK=`jetbackup5api -F listDestinations | grep "host:" | awk -F': ' '{print $2}'`
 
 # Define the IPs to check against
 TARGET_IPS=("172.16.231.33" "172.16.231.47" "172.16.231.57")
