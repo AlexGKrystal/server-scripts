@@ -2,23 +2,21 @@
 #
 # Created by Alex G
 # DATE 18/02/2025
-# Script is used to create a txt file which can be populated with cPanel cp_accounts
-# Accounts are then looped through and assigned to "kvalidator"
+# Script is used to assign all accounts owned by a reseller to kvalidator
 
-# Creates the file and allows user to input list of domains
-nano kval_accounts.txt
+# User input for reseller
+echo "Enter Reseller user you wish to re-assign to kvalidator"
+read RESELLER
 
-# Check if the file exists. If not, exit.
-if [ ! -f "kval_accounts.txt" ]; then
-  echo "Input file 'kval_accounts.txt' not found."
-  exit 1
-fi
+# Fetch list of accounts owned by the RESELLER using whmapi1
+ACCOUNTS=$(whmapi1 listaccts search=$RESELLER searchtype=owner | grep "user: " | awk '{print $2}')
 
-# Loop through each account in the kval_accounts.txt file
-while IFS= read -r cp_accounts; do
- echo "Assigning $cp_accounts to kvalidator..."
- whmapi1 --output=jsonpretty modifyacct user=$cp_accounts owner=kvalidator
-done < "kval_accounts.txt"
+# Loop through each account and change the owner
+for USER in $ACCOUNTS; do
+    echo "Assigning $USER to Kvalidator..."
+    whmapi1 modifyacct user=$USER owner=kvalidator
+done
 
-# Cleanup
-rm -f kval_accounts.txt
+echo
+echo "All Accounts owned by $RESELLER have now been assigned to Kvalidator"
+echo
