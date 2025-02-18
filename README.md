@@ -33,6 +33,11 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-process-snapshot.sh)"
 ```
 
+###### Mass kvalidator (Assign multiple users to owner kvalidator)
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/kvalidator.sh)"
+```
+
 ## Maintenance
 
 ###### Check latest JetBackup log for errors
