@@ -17,7 +17,7 @@ fi
 # Loop through each account in the kval_accounts.txt file
 while IFS= read -r cp_accounts; do
  echo "Assigning $cp_accounts to kvalidator..."
-  whmapi1 --output=jsonpretty modifyacct user=$cp_accounts owner=kvalidator
+ whmapi1 --output=jsonpretty modifyacct user=$cp_accounts owner=kvalidator
 done < "kval_accounts.txt"
 
 # Cleanup
