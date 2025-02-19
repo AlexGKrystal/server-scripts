@@ -35,7 +35,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 
 ###### Mass kvalidator (Assign multiple users to owner kvalidator)
 ```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/kvalidator.sh)"
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/assign_reseller_to_kvalidator.sh)"
 ```
 
 ## Maintenance
