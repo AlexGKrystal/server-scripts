@@ -14,7 +14,8 @@ ACCOUNTS=$(whmapi1 listaccts search=$RESELLER searchtype=owner | grep "user: " |
 # Loop through each account and change the owner
 for USER in $ACCOUNTS; do
     echo "Assigning $USER to Kvalidator..."
-    whmapi1 modifyacct user=$USER owner=kvalidator
+    whmapi1 modifyacct user=$USER owner=kvalidator | awk '/messages:/,/warnings: \[\]/'
+    echo
 done
 
 echo
