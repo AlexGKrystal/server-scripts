@@ -28,6 +28,7 @@ rm -rf /usr/local/maldetect/sess/*
 rm -rf /home/cprestore/*
 rm -rf /mysqlbkp
 find /home/ -type f -name "error_log" -exec rm {} \;
+find /home/ -type f -name "debug.log" -exec rm {} \;
 rm -rf /home/cpmove*
 find /var/log/atop/ -mtime +2 -exec rm {} \;
 find /home/ -name "*.unison.tmp" > /root/unisontmp.log
