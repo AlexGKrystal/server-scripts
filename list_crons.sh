@@ -3,7 +3,7 @@ cd /var/spool/cron
 ls -1 > /root/userscronjobs.txt
 for i in `cat /root/userscronjobs.txt`
  do
-  echo "######For the user $i######" >> /root/cron_list.txt
+  echo "###### For the user $i ######" >> /root/cron_list.txt
   echo "" >> /root/cron_list.txt
   cat $i >> /root/cron_list.txt
   echo "" >> /root/cron_list.txt
