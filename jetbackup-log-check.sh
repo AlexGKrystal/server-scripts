@@ -1,7 +1,17 @@
 #!/bin/sh
 # 
+
+
+# Output Backup Server
+echo "=========== Backup Destination =========== "
+jetbackup5api -F listDestinations | grep -E 'name:' | head -n 1
+echo ""
+
 # Get the most recent log file where a Backup is run
 # Checking log files with "Backup Name" set to get around logs from snapshot cleanup interferring
+echo "=========== Backup Destination =========== "
+jetbackup5api -F listDestinations | grep -E 'name:' | head -n 1
+echo ""
 recent_log=$(grep "Backup Name" /usr/local/jetapps/var/log/jetbackup5/queue/*.log | awk -F':' '{print $1}' | tail -n 1)
 
 # Check if the third line contains "JB Config"
