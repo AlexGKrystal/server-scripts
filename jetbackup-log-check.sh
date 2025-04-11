@@ -1,7 +1,5 @@
 #!/bin/sh
 # 
-
-
 # Output Backup Server
 echo "=========== Backup Destination =========== "
 jetbackup5api -F listDestinations | grep -E 'name:' | head -n 1
