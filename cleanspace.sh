@@ -44,3 +44,23 @@ sleep 3
 df -h
 echo -e "\n${bold}Complete... ${normal}\n"
 sleep 0.5
+
+# Checking for largest directoies and files
+read -p "Do you want to check for largest directories and files? (y/n): " answer
+
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+    FS='/'
+    clear
+    date
+    df -h "$FS"
+    echo -e "\nLargest Directories:"
+    du -hcx --exclude=/proc --exclude=/home/virtfs --max-depth=2 "$FS" 2>/dev/null | grep '[0-9]G' | sort -grk 1 | head -15
+    echo -e "\nLargest Files:"
+    nice -n 19 find "$FS" -mount -type f -print0 2>/dev/null | \
+        xargs -0 du -k | sort -rnk1 | head -n20 | \
+        awk '{printf "%8d MB\t%s\n",($1/1024),$NF}'
+else
+    echo "Exiting..."
+    exit 0
+fi
+
