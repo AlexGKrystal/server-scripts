@@ -50,7 +50,6 @@ read -p "Do you want to check for largest directories and files? (y/n): " answer
 
 if [[ "$answer" =~ ^[Yy]$ ]]; then
     FS='/'
-    clear
     date
     df -h "$FS"
     echo -e "\nLargest Directories:"
