@@ -22,7 +22,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh)"
 ```
 
-###### Check Server wide loogs for common IPs and userAgents (basically same as Friendly log checke)
+###### Check Server wide logs for common IPs and userAgents (basically same as Friendly log checke)
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/server-log-check.sh)"
 ```
@@ -47,7 +47,7 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/jetbacku
 
 ###### Clear space on server
 ```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh)"
 ```
 
 ###### MariaDB 10.3 to 10.6 Upgrade Script
