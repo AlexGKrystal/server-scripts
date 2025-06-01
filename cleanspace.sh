@@ -53,7 +53,7 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
     date
     df -h "$FS"
     echo -e "\nLargest Directories:"
-    du -hcx --exclude=/proc --exclude=/home/virtfs --max-depth=2 "$FS" 2>/dev/null | grep '[0-9]G' | sort -grk 1 | head -15
+    du -hcx --exclude=/proc --exclude=/home/virtfs --exclude=/usr --max-depth=2 "$FS" 2>/dev/null | grep '[0-9]G' | sort -grk 1 | head -15
     echo -e "\nLargest Files:"
     nice -n 19 find "$FS" -mount -type f -print0 2>/dev/null | \
         xargs -0 du -k | sort -rnk1 | head -n20 | \
