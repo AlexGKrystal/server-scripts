@@ -30,7 +30,7 @@ case "$option" in
     jq -r ".$cp_user.deep_freeze[] | .file_name, .original_file_path, \"\"" /home/0_backup_freezer/0_seaman/process_user_backups.json
     ;;
   3)
-    echo "Enter the date to search (e.g. 2025-05-21):"
+    echo "Enter the date to search (e.g. `tail -n 1 /var/log/seaman.log | awk '{print $1}'`):"
     read -r search_date
     awk -v user="$cp_user" -v date="$search_date" '$1 == date && $4 ~ user' /var/log/seaman.log
     ;;
