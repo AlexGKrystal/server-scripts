@@ -34,6 +34,17 @@ echo "~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~"
 cat $log_file | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail
 
+echo "~~~~~~~~~~~~~~~~~~
+# Top /24 Ranges #
+~~~~~~~~~~~~~~~~~~"
+cat $log_file | awk '{split($1,a,"."); print a[1] "." a[2] "." a[3]}' | sort | uniq -c | sort -n | awk '$1>0{print $1 " hits from " $2".0/24"}' | tail
+
+
+echo "~~~~~~~~~~~~~~~~~~
+# Top /16 Ranges #
+~~~~~~~~~~~~~~~~~~"
+cat $log_file | awk '{split($1,a,"."); print a[1] "." a[2]}' | sort | uniq -c | sort -n | awk '$1>0{print $1 " hits from " $2".0.0/16"}' | tail
+
 echo
 echo "
 ~~~~ Data from log file: $log_file ~~~~"
