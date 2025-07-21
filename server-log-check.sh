@@ -33,12 +33,10 @@ echo "~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~"
 cat ~/overview_log_temp.log | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail -n 20
 
-
 echo "~~~~~~~~~~~~~~~~~~
 # Top /24 Ranges #
 ~~~~~~~~~~~~~~~~~~"
 cat ~/overview_log_temp.log | awk '{print $1}' | awk -F':' '{print $2}' | awk '{split($1,a,"."); print a[1] "." a[2] "." a[3]}' | sort | uniq -c | sort -n | awk '$1>0{print $1 " hits from " $2".0/24"}' | tail
-
 
 echo "~~~~~~~~~~~~~~~~~~
 # Top /16 Ranges #
