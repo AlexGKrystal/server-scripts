@@ -50,11 +50,6 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/jetbacku
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh)"
 ```
 
-###### MariaDB 10.3 to 10.6 Upgrade Script
-```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/mysql-upgrade-script.sh)"
-```
-
 ## Installs
 
 ###### Installing Elasticsearch 7
@@ -62,21 +57,10 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/elasticsearch7-install.sh | sh
 ```
 
-###### Installing Litespeed
-```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/ls-install.sh)"
-```
-
 ###### Checking installed modules on a server
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cpanel-install-check.sh | sh
 ```
-
-###### Install Monit
-```
-curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/monit.sh | sh
-```
-
 
 ## Misc
 
