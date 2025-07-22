@@ -19,16 +19,16 @@ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 cat <<EOT >> /home/$user/.htaccess
 ############################################
-#START OF KRYSTAL SUPPORT BLOCK DO NOT EDIT#
+#### START OF SUPPORT BLOCK DO NOT EDIT ####
 ############################################
 # Please do not remove this block of code  #
-# without prior permission from Krystal    #
+# without prior permission from Support    #
 ############################################
 Order Deny, Allow
 Deny from all
 Allow from $ip_address
 ############################################
-# END OF KRYSTAL SUPPORT BLOCK DO NOT EDIT #
+##### End OF SUPPORT BLOCK DO NOT EDIT #####
 ############################################
 EOT
 
