@@ -41,6 +41,16 @@ else
     done
 fi
 
+# Outputs Date of Last error
+echo "=========== Date of Last reported ERROR ==========="
+for logfile in $(ls -1t /usr/local/jetapps/var/log/jetbackup5/queue/*.log); do
+    if grep -q 'ERROR' "$logfile"; then
+        grep 'ERROR' "$logfile" | tail -n 1 |awk '{print $1}' | cut -c2-
+        break
+    fi
+done
+
+
 # generate a WHM login link
 echo ""
 echo "=========== WHM Login Link ==========="
