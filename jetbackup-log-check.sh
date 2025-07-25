@@ -41,7 +41,9 @@ else
     done
 fi
 
+
 # Outputs Date of Last error
+echo""
 echo "=========== Date of Last reported ERROR ==========="
 for logfile in $(ls -1t /usr/local/jetapps/var/log/jetbackup5/queue/*.log); do
     if grep -q 'ERROR' "$logfile"; then
