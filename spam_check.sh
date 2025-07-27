@@ -11,19 +11,21 @@ if [[ "$user_input" == *"@"* ]]; then
 
     # Get cPanel User
     echo ""
-    echo "=========================================="
-    echo "===== Getting cPanel Owner for Email ====="
-    echo "=========================================="
+    echo "=================================================="
+    echo "===== Getting cPanel Owner Details for Email ====="
+    echo "=================================================="
     domain=$(echo "$user_input" | awk -F@ '{print $2}')
-    owner=$(/scripts/whoowns "$domain")
-    echo "cPanel account owner: $owner"
+    cpanel_user=$(/scripts/whoowns "$domain")
+    reseller=$(whmapi1 accountsummary user=$cpanel_user | grep owner | awk '{print $2}')
+    echo "cPanel account For domain: $cpanel_user"
+    echo "Reseller Owner for account: $reseller"
     echo ""
 
     # Dealing with Compromised pass
     echo "================================================================"
     echo "!!! If Above user is confirmed spamming !!! Reset Password with:"
     new_pass=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 20; echo)
-    echo "uapi --user=$owner Email passwd_pop email='$user_input' password='$new_pass'"
+    echo "uapi --user=$cpanel_user Email passwd_pop email='$user_input' password='$new_pass'"
     echo ""
 else
     # Handle as cPanel username
