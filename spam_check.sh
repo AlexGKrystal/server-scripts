@@ -37,6 +37,6 @@ else
     echo "=========================================="
     echo "===== Full Log for Latest Message ID ====="
     echo "=========================================="
-    message_id=$(grep "U=hoursunlock" /var/log/exim_mainlog | tail -n 1 | awk '{print $3}')
+    message_id=$(grep "U=$user_input" /var/log/exim_mainlog | tail -n 1 | awk '{print $3}')
     grep $message_id /var/log/exim_mainlog
 fi
