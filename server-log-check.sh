@@ -33,9 +33,7 @@ echo "~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~"
 cat ~/overview_log_temp.log | awk -F\" '($2 ~ "^GET /"){print $6}' | sort -n | uniq -c | sort -n | tail -n 20
 
-echo "===================================================================================================
-Checking for Common Ranges. Below Ranges are not RIPE accurate, so please use WHOIS before blocking
-==================================================================================================="
+echo -e "\n\033[1;41;97m Checking for Common Ranges. Below Ranges are not RIPE accurate, so please use WHOIS before blocking \033[0m\n"
 
 echo "~~~~~~~~~~~~~~~~~~
 # Top /24 Ranges #
