@@ -24,15 +24,18 @@ read -r option
 
 case "$option" in
   1)
-    jq ".$cp_user.wp_backups | to_entries | map(select(.value | length > 0)) | from_entries" /home/0_backup_freezer/0_seaman/process_user_backups.json
+    echo "==== Wordpress Files Found ===="
+    jq --arg user "$cp_user" '.[$user].cpanel_backups' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
+    echo "==== cPanel Backup files Found ===="
+    jq --arg user "$cp_user" '.[$user].cpanel_backups' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
     ;;
   2)
-    jq -r ".$cp_user.deep_freeze[] | .file_name, .original_file_path, \"\"" /home/0_backup_freezer/0_seaman/process_user_backups.json
+    jq --arg user "$cp_user" '.[$user].cpanel_backups' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
     ;;
   3)
-    echo "Enter the date to search (e.g. `tail -n 1 /var/log/seaman.log | awk '{print $1}'`):"
+    echo "Enter the date to search (e.g. `tail -n 1 /var/log/shodan.log | awk '{print $1}'`):"
     read -r search_date
-    awk -v user="$cp_user" -v date="$search_date" '$1 == date && $4 ~ user' /var/log/seaman.log
+    awk -v user="$cp_user" -v date="$search_date" '$1 == date && $4 ~ user' /var/log/shodan.log
     ;;
   *)
     echo "Invalid option. Please enter 1, 2, or 3."
