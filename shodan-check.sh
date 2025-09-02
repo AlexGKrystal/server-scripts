@@ -7,7 +7,7 @@
 cp_user=$1
 
 if [ -z "$cp_user" ]; then
-  echo "Run script with user: /root/scripts/shodan_check.sh cp_user"
+  echo "Run script with user: /root/scripts/shodan-check.sh cp_user"
   exit 1
 fi
 
