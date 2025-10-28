@@ -30,12 +30,12 @@ case "$option" in
     jq --arg user "$cp_user" '.[$user].cpanel_backups' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
     ;;
   2)
-    jq --arg user "$cp_user" '.[$user].cpanel_backups' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
+    jq --arg user "$cp_user" '.[$user].deep_freeze[].file_name' /home/0_shodan_backup_manager/0_shodan/shodan_database.json
     ;;
   3)
     echo "Enter the date to search (e.g. Todays date: `tail -n 1 /var/log/shodan.log | awk '{print $1}'`):"
     read -r search_date
-    awk -v user="$cp_user" -v date="$search_date" '$1 == date && $4 ~ user' /var/log/shodan.log
+    awk '$1 == "$search_date" && $7 ~ /"$cp_user"/' /var/log/shodan.log
     ;;
   *)
     echo "Invalid option. Please enter 1, 2, or 3."
