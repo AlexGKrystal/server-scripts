@@ -35,7 +35,7 @@ case "$option" in
   3)
     echo "Enter the date to search (e.g. Todays date: `tail -n 1 /var/log/shodan.log | awk '{print $1}'`):"
     read -r search_date
-    awk '$1 == "$search_date" && $7 ~ /"$cp_user"/' /var/log/shodan.log
+    awk '/$search_date/ && /$cp_user/' /var/log/shodan.log
     ;;
   *)
     echo "Invalid option. Please enter 1, 2, or 3."
