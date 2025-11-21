@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage
-# curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cleanspace.sh | sh
+# bash -c "$(wget -qO - https://deploy-managed.krystal.uk/scripts/cleanspace.sh)"
 
 echo -e "${bold}Usage Before Cleanup: ${normal}"
 df -h
