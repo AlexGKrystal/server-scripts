@@ -12,6 +12,7 @@ read new_opensearch_password
 env OPENSEARCH_INITIAL_ADMIN_PASSWORD=$new_opensearch_password yum install opensearch -y
 
 # Get tmp Path fix done
+echo "fixing temp folder issue"
 mkdir -p /var/lib/opensearch/tmp
 chown opensearch:opensearch /var/lib/opensearch/tmp
 chmod 750 /var/lib/opensearch/tmp
@@ -29,6 +30,7 @@ chkconfig --add opensearch
 
 
 ### Adds Auto restart to the config
+echo "Adding Auto restart to the config"
 CONFIG_FILE="/usr/lib/systemd/system/opensearch.service"  # replace with the path to your configuration file
 
 # Check if the configuration file exists
@@ -54,6 +56,7 @@ else
 fi
 
 # Create a Post Update Hook to fix cpanel stopping services after updates
+echo "Creating a hook to restart POST cPanel update"
 echo "/usr/bin/systemctl restart opensearch" > /usr/local/cpanel/hooks/restart-opensearch.sh
 chmod +x /usr/local/cpanel/hooks/restart-opensearch.sh
 # registering hook
