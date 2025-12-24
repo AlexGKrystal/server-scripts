@@ -67,7 +67,7 @@ echo "
 ## Checking OpenSearch Status ##
 ###################################
 "
-curl -X GET https://localhost:9200 -u admin:$new_opensearch_password --insecure
+systemctl status opensearch | head
 
 # Complete
 echo "
