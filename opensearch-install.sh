@@ -19,16 +19,6 @@ chmod 750 /var/lib/opensearch/tmp
 sed -i 's|^-Djava\.io\.tmpdir=.*|-Djava.io.tmpdir=/var/lib/opensearch/tmp|' /etc/opensearch/jvm.options
 
 
-#Enable service
-systemctl enable opensearch
-
-# Start service
-systemctl start opensearch
-
-# Add service to startup
-chkconfig --add opensearch
-
-
 ### Adds Auto restart to the config
 echo "Adding Auto restart to the config"
 CONFIG_FILE="/usr/lib/systemd/system/opensearch.service"  # replace with the path to your configuration file
@@ -54,6 +44,15 @@ else
   echo "[Service] section not found in the configuration file."
   exit 1
 fi
+
+#Enable service
+systemctl enable opensearch
+
+# Start service
+systemctl restart opensearch
+
+# Add service to startup
+chkconfig --add opensearch
 
 # Create a Post Update Hook to fix cpanel stopping services after updates
 echo "Creating a hook to restart POST cPanel update"
