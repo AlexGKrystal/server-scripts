@@ -73,5 +73,5 @@ echo "
 ## OpenSearch install finished ##
 ####################################
 ####### Set Memory limits in #######
-## /etc/elasticsearch/jvm.options ##
+## /etc/opensearch/jvm.options ##
 ####################################"
