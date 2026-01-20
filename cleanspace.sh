@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "${bold}Usage Before Cleanup: ${normal}"
-df -h
+df -h /
 sleep 0.5
 echo ""
 echo -e "~~~~~~~ Cleaning Disk ~~~~~~~"
@@ -18,7 +18,7 @@ cd /root
 echo "Emptying Trash..."
 find /home -maxdepth 2 -type d -name ".trash" -exec rm -rf {} +
 echo "Clearing Core Files..."
-find /home/* -name core.[0-9]* -exec rm -vf {} \;
+find /home/* -maxdepth 2 -name core.[0-9]* -exec rm -vf {} \;
 echo "Removing cPanel temp worker files..."
 rm -rf cpanel.TMP.work*
 echo "Clearing Clamav logs..."
@@ -27,6 +27,8 @@ echo "Clearing Spamd files..."
 rm -rf spamd*
 echo "Clearing cPanel files from users tmp dirs..."
 rm -rf /home/*/tmp/Cpanel_*
+echo "Clearing Softaculous tmp folder for older files..."
+find /home/*/softaculous_backups/tmp/* -mtime +7 -exec rm -rf {} \;
 echo "maldetect session files..."
 rm -rf /usr/local/maldetect/sess/*
 echo "Clearing cPanel restore files..."
@@ -34,7 +36,8 @@ rm -rf /home/cprestore/*
 echo "Clearing MySQL Backup backup folder (often created for upgrades)..."
 rm -rf /mysqlbkp
 echo "Clearing error_log files..."
-find /home/ -type f -name "error_log" -exec rm {} \;
+find /home/ -type f -name "error_log" -delete
+find /home/*/logs -type f -name "*.php.error.log" -delete
 echo "Clearing debug.log files..."
 find /home/ -type f -name "debug.log" -exec rm {} \;
 echo "Clearing Cpanel move files..."
@@ -51,7 +54,7 @@ echo "cPanel Backups cleaned"
 echo "----------------------"
 echo -e "${bold}Usage After Cleanup: ${normal}"
 sleep 3
-df -h
+df -h /
 echo -e "\n${bold}Complete... ${normal}\n"
 sleep 0.5
 
@@ -72,4 +75,3 @@ else
     echo "Exiting..."
     exit 0
 fi
-
