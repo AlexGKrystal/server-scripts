@@ -12,5 +12,8 @@ for user in $(ls /var/cpanel/users/); do
     fi
 done
 
-echo "Saved to $OUTPUT_FILE"
-cat $OUTPUT_FILE
+echo "PHP versions Saved to $OUTPUT_FILE"
+
+echo "Backing up remote and local domains"
+cat /etc/localdomains > /root/localdomains.bak
+cat /etc/remotedomains > /root/remotedomains.bak

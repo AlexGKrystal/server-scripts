@@ -23,3 +23,8 @@ while read -r line; do
     selectorctl --set-user-current=$version -u $user 2>/dev/null && echo "OK" || echo "FAILED"
 done < "$INPUT_FILE"
 
+echo "restoring Remote and local  domains"
+cat /root/localdomains.bak > /etc/localdomains
+cat /root/remotedomains.bak > /etc/remotedomains
+echo "restarting Exim"
+systemctl restart exim
