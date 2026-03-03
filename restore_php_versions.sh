@@ -7,8 +7,22 @@ if [ ! -f "$INPUT_FILE" ]; then
     exit 1
 fi
 
+# Restore .cl.selector files from .bak
 while read -r line; do
-    # Skip comments and empty lines
+    [[ "$line" =~ ^#.*$ || -z "$line" ]] && continue
+    user=$(echo $line | awk '{print $1}')
+
+    if [ -d "/home/$user/.cl.selector" ]; then
+        for bak in /home/$user/.cl.selector/*.bak; do
+            [ -f "$bak" ] && mv "$bak" "${bak%.bak}"
+        done
+        # Fix permissions broken from script run as root
+        chown -R $user:$user /home/$user/.cl.selector
+    fi
+done < "$INPUT_FILE"
+
+# Re-apply PHP versions
+while read -r line; do
     [[ "$line" =~ ^#.*$ || -z "$line" ]] && continue
 
     user=$(echo $line | awk '{print $1}')

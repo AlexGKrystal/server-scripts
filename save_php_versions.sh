@@ -10,9 +10,16 @@ for user in $(ls /var/cpanel/users/); do
     else
         echo "$user default" >> $OUTPUT_FILE
     fi
+
+    # Backup .cl.selector files
+    if [ -d "/home/$user/.cl.selector" ]; then
+        for file in /home/$user/.cl.selector/*; do
+            [ -f "$file" ] && cp "$file" "${file}.bak"
+        done
+    fi
 done
 
-echo "PHP versions Saved to $OUTPUT_FILE"
+echo "PHP versions saved to $OUTPUT_FILE"
 
 echo "Backing up remote and local domains"
 cat /etc/localdomains > /root/localdomains.bak
