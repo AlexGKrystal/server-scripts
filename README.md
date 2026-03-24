@@ -83,3 +83,8 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/list_cro
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/litespeed-check.sh)"
 ```
+
+###### Uptime Robot csf checker
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/uptime_robot_check.sh)"
+```
