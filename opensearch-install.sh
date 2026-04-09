@@ -56,10 +56,14 @@ chkconfig --add opensearch
 
 # Create a Post Update Hook to fix cpanel stopping services after updates
 echo "Creating a hook to restart POST cPanel update"
-echo "/usr/bin/systemctl restart opensearch" > /usr/local/cpanel/hooks/restart-opensearch.sh
+cat > /usr/local/cpanel/hooks/restart-opensearch.sh << 'EOF'
+#!/bin/bash
+/usr/bin/systemctl restart opensearch
+echo "$(date) - restart-opensearch hook fired : Exit Code: $?"
+EOF
 chmod +x /usr/local/cpanel/hooks/restart-opensearch.sh
 # registering hook
-/usr/local/cpanel/bin/manage_hooks add script /usr/local/cpanel/hooks/restart-opensearch.sh --category=System --event=RPMs::PostTransaction --stage=post --manual
+/usr/local/cpanel/bin/manage_hooks add script /usr/local/cpanel/hooks/restart-opensearch.sh --category=System --event=upcp --stage=post --escalateprivs
 
 # Output Status
 echo "
