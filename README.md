@@ -88,3 +88,9 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scri
 ```
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/uptime_robot_check.sh)"
 ```
+
+###### Cloudflare csf checker
+```
+bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/cloudflare_csf_check.sh)"
+```
+
