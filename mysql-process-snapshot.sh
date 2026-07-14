@@ -7,7 +7,7 @@
 
 # Start logging processes in MySQL, pipe into a log and grab PID for job
 echo "Grabbing MySQL processes for 10 seconds"
-while true; do mysqladmin processlist | grep -v Sleep | grep _; done > mysql-process-snapshot.log & 
+while true; do mariadb-admin processlist | grep -v Sleep | grep _; done > mysql-process-snapshot.log & 
 TAIL_PID=$!
 # Wait for 10 seconds
 sleep 10
