@@ -1,34 +1,65 @@
 #!/bin/bash
 
-# Get user to enter in Time
-echo "Enter Date/hour to check logs:"
-# Give example of most recent log entry so user can copy/paste for quick results
-echo "example: `tail -n 1 /etc/apache2/logs/access_log | awk '{print substr($4, 2, 14)}'`"
-# read input
-read time_range
+# Identifies IPs that have accessed the largest number of unique vhosts
+# (log files) within a given time frame, excluding the server's own IPs.
 
-# Find all log files in the specified directory and its subdirectories, excluding "bytes_log" files
-log_files=$(find /var/log/apache2/domlogs/ -type f -not -name "*bytes_log")
+# --- Configuration ---
+TOP_N=25
+ALL_SERVER_IPS=$((hostname -i; hostname -I) | tr ' ' '\n' | sort -u | tr '\n' ' ')
 
-# Initialize an associative array to store IP counts
-declare -A ip_counts
+# --- Argument Handling ---
+if [[ $# -eq 0 ]]; then
+  echo "Usage: $0 <hour1> [hour2] [hour3]..."
+  echo "   or: $0 '<full_time_string_with_regex>'"
+  echo "Example (single hour):    $0 14"
+  echo "Example (multiple hours): $0 10 11"
+  echo "Example (full string):    $0 '24/Jul/2025:1[0-1]'"
+  exit 1
+fi
 
-# Loop through each log file
-for file in $log_files; do
-  # Extract unique IP addresses from the log file within the specified time range using awk and sort
-  ips=$(awk -v time_range="$time_range" '$4 ~ "^\\[" time_range {print $1}' "$file" | sort -u)
-
-  # Loop through each IP address
-  for ip in $ips; do
-    # Increment the count for the IP address in the associative array
-    ((ip_counts[$ip]++))
+# --- Time Range Processing ---
+# Check if the first argument looks like an hour (a number) or a full string.
+if [[ "$1" =~ ^[0-9]{1,2}$ ]]; then
+  # Mode 1: Processing one or more hour arguments.
+  patterns=()
+  for hour in "$@"; do
+    # Validate that each argument is a number between 0 and 23.
+    if ! [[ "$hour" =~ ^([0-9]|1[0-9]|2[0-3])$ ]]; then
+      echo "Error: Hour must be a number between 0 and 23. Invalid argument: '$hour'" >&2
+      exit 1
+    fi
+    hour_fmt=$(printf "%02d" "$hour")
+    patterns+=("$(date +'%d/%b/%Y'):${hour_fmt}")
   done
-done
 
-# Sort the IP addresses by count in descending order
-sorted_ips=$(for ip in "${!ip_counts[@]}"; do
-  echo "${ip_counts[$ip]} $ip"
-done | sort -n)
+  # Join the individual hour patterns with a "|" (OR) for the regex.
+  TIME_PATTERN=$(IFS='|'; echo "${patterns[*]}")
+  echo "🔎 Searching for top 25 IPs hitting the most vhosts today during hours: $@" >&2
 
-# Output the sorted IP addresses and their counts
-echo "$sorted_ips"
+else
+  # Mode 2: Processing a single, full string argument (maintains old behavior).
+  TIME_PATTERN="$1"
+  echo "🔎 Searching for top 25 IPs hitting the most vhosts with time string: '$TIME_PATTERN'" >&2
+fi
+
+
+# --- Main Logic ---
+find /var/log/apache2/domlogs/ -type f -not -name "*bytes_log" -print0 | \
+  xargs -0 awk -v pattern="$TIME_PATTERN" -v exclude_ips="$ALL_SERVER_IPS" '
+    BEGIN {
+      # Create an array `exclude_set` containing all server IPs for fast lookup.
+      split(exclude_ips, ip_array, " ");
+      for (i in ip_array) {
+        exclude_set[ip_array[i]] = 1;
+      }
+    }
+    # The regex now checks for any of the patterns provided.
+    $4 ~ "^\\[(" pattern ")" && !($1 in exclude_set) {
+      print $1, FILENAME
+    }
+  ' | \
+  sort -u | \
+  awk '{print $1}' | \
+  uniq -c | \
+  sort -k1,1nr | \
+  head -n "$TOP_N"
