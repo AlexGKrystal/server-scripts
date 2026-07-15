@@ -17,9 +17,13 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/log_chec
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/user_check.sh)"
 ```
 
-###### Check Server wide common IPs
+###### Check Server wide common IPs (
 ```
-bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh)"
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s $HOUR
+```
+example:
+```
+curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s 7
 ```
 
 ###### Check Server wide logs for common IPs and userAgents (basically same as Friendly log checke)
