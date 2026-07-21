@@ -32,6 +32,8 @@ Allow from $ip_address
 ############################################
 EOT
 
+# Fix permissions as file has been changed through root user
+chown $user.$user /home/$user/.htaccess
 
 echo "~~~~~~~~~~~~~~~~~~~~~~~~
 # Unsuspending Account #
