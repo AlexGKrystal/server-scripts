@@ -17,7 +17,7 @@ curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/log_chec
 bash -c "$(wget -qO - https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/user_check.sh)"
 ```
 
-###### Check Server wide common IPs (
+###### Check Server wide common IPs
 ```
 curl https://raw.githubusercontent.com/AlexGKrystal/server-scripts/main/common-ips.sh | sh -s $HOUR
 ```
